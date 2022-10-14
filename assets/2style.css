@@ -1,0 +1,445 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+@font-face {
+  font-family: typewriter;
+  src: url(../font/Leorio.ttf) format('truetype');
+}
+body {
+  font-family: 'typewriter';
+  color: #fd5400;
+  background-color: #ffffe3;
+}
+/* #373028 */
+/* #0cc1c8 */
+/* #fd5400 */
+/* #0e3d4a */
+
+.header-container {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-size: 5vw;
+}
+.header-img {
+  background-image: url('../img_salon/landscape/lady3.jpg');
+  background-size: cover;
+  background-position: center center;
+}
+.header-logo {
+  position: absolute;
+  bottom: 0;
+  left: 15px;
+  font-size: 10vw;
+}
+.header-nav {
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  font-size: 5vw;
+  display: none;
+}
+.header-menu {
+  position: fixed;
+  top: 25px;
+  z-index: 10;
+  font-size: 15px;
+  font-weight: 600;
+}
+.header-menu ul {
+  display: flex;
+  justify-content: space-around;
+  border-radius: 100px;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 9px 0px 8px;
+}
+.header-menu ul li {
+  color: #000;
+}
+.header-menu ul li a {
+  text-align: center;
+  padding: 9px 17px 8px;
+  width: 100%;
+  border-radius: 100px;
+  transition: all 0.4s;
+}
+.header-menu .now{
+  background-color: rgba(14, 61, 74, 0.8);
+  color: #fff;
+}
+.header-menu ul li a:hover{
+  background-color: #fd5400;
+  color: #fff;
+}
+/* チェックボックスは非表示に */
+.drawer-hidden {
+  display: none;
+}
+/* ハンバーガーアイコンの設置スペース */
+.drawer-open {
+  display: flex;
+  height: 31px;
+  width: 35px;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  inset: 0;
+  margin: 0 auto;
+  top: 10px;
+  z-index: 15;/* 重なり順を一番上に */
+  cursor: pointer;
+}
+/* ハンバーガーメニューのアイコン */
+.drawer-open span,
+.drawer-open span:before,
+.drawer-open span:after {
+  content: '';
+  display: block;
+  height: 5px;
+  width: 35px;
+  border-radius: 3px;
+  background: #000;
+  transition: 0.5s;
+  position: absolute;
+}
+/* 三本線のうち一番上の棒の位置調整 */
+.drawer-open span:before {
+  bottom: 10px;
+}
+/* 三本線のうち一番下の棒の位置調整 */
+.drawer-open span:after {
+  top: 10px;
+}
+/* アイコンがクリックされたら真ん中の線を透明にする */
+#drawer-check:checked ~ .drawer-open span {
+  background: rgba(255, 255, 255, 0);
+  transition: 0.2s;
+}
+/* アイコンがクリックされたらアイコンが×印になように上下の線を回転 */
+#drawer-check:checked ~ .drawer-open span::before {
+  bottom: 0;
+  transform: rotate(45deg);
+}
+#drawer-check:checked ~ .drawer-open span::after {
+  top: 0;
+  transform: rotate(-45deg);
+}
+/* メニューのデザイン*/
+.drawer-content {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 100%;/* メニューを画面の外に飛ばす */
+  z-index: 14;
+  background: #fd5400;
+  color: #ffffe3;
+  transition: .5s;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.drawer-list {
+  height: auto;
+  font-size: 13vw;
+}
+.drawer-item {
+  width: 70vw;
+  text-align: center;
+  margin: 5vh;
+  display: flex;
+}
+.drawer-item a {
+  width: 100%;
+  border-radius: 30px;
+}
+.drawer-item a:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+/* アイコンがクリックされたらメニューを表示 */
+#drawer-check:checked ~ .drawer-content {
+  left: 0;/* メニューを画面に入れる */
+}
+@media screen and (max-width:820px) {
+  .drawer{
+    display: flex;
+  }
+}
+@media screen and (min-width:821px) {
+  .drawer {
+    display: none;
+  }
+}
+@media screen and (max-width:820px) {
+  .header-menu{
+    display: none;
+  }
+}
+@media screen and (max-width:820px) {
+  .header-logo {
+    top: 10px;
+    left: 10px;
+    font-size: 15vw;
+  }
+  .header-nav {
+    right: 20px;
+    top: 90%;
+    font-size: 9vw;
+    display: block;
+  }
+}
+
+/* header終了 */
+
+/* 以下Menu */
+.menu-top-container{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.menu-tittle-box {
+  height: 60vh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.tax {
+  font-size: 20px;
+  margin-top: 8vh;
+}
+.menu-tittle {
+  width: 150px;
+  aspect-ratio: 5 / 5;
+  background-color: #0e3d4a;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+.menu-tittle p {
+  font-size: 30px;
+}
+.menu-tittle-img {
+  width: 80%;
+  aspect-ratio: 10 / 5.5;
+  min-height: 500px;
+  max-height: 80vh;
+  margin-bottom: 8vh;
+  border-radius: 50px;
+  background-image: url('../img_salon/menu_img.jpg');
+  background-size: cover;
+  background-position: center center;
+}
+.flex {
+display: flex;
+display: -ms-flexbox;
+-ms-flex-flow: row wrap;
+flex-flow: row wrap;
+width: 100%;
+margin-bottom: 10px;
+}
+
+
+
+.menu-cut-container,
+.menu-color-container,
+.menu-perm-container,
+.menu-treatment-container {
+  width: 100%;
+  height: 50vh;
+  max-height: 400px;
+  font-size: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.menu-color-container,
+.menu-perm-container{
+  max-height: 280px;
+}
+.menu-treatment-container{
+  max-height: 200px;
+}
+.menu-nav {
+  text-align: center;
+  font-size: 30px;
+  margin: 0 auto;
+}
+.menu-cut,
+.menu-color,
+.menu-perm,
+.menu-treatment {
+  width: 70%;
+  margin: 0 auto;
+}
+@media (max-width: 780px){
+  .menu-cut-container,
+  .menu-color-container,
+  .menu-perm-container,
+  .menu-treatment-container {
+    font-size: 20px;
+  }
+  .menu-cut,
+  .menu-color,
+  .menu-perm,
+  .menu-treatment {
+    width: 80%;
+    margin: 0 auto;
+  }
+  .flex i {
+    display: none;
+  }
+  span.tab-reader-box1 {
+    color: #ffffe3;
+  }
+  span.tab-reader-box3{
+    color: #fd5400;
+  }
+}
+
+.flex-bottom {
+  margin: 0;
+}
+.flex i {
+  color: #0e3d4a;
+}
+hr.tab-r-line {
+position: relative;
+top: calc(50% - 1px);
+margin: 0 10px;
+border: none;
+border-top: dotted 2px #0e3d4a;
+}
+.tab-reader-box2 {
+flex: auto;
+}
+@media (max-width: 780px) {
+  .flex{
+    margin: 0;
+  }
+  span.tab-reader-box2 {
+  display: none;
+  }
+  span.tab-reader-box1, span.tab-reader-box3 {
+  width: 100%;
+  height: 35px;
+  text-align: center;
+  border: 1px solid #0e3d4a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  }
+  span.tab-reader-box1 {
+  background: #0e3d4a;
+  height: 40px;
+  }
+}
+@media (max-width: 450px) {
+  .menu-cut .tab-reader-box1 {
+    height: 50px;
+  }
+}
+
+/* 以下footer */
+
+footer {
+  width: 100%;
+  height: 40vh;
+  border-top: dashed #fd5400 5px;
+  /* background-color: #373028; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: #ffffe3;
+  position: relative;
+  z-index: 13;
+  margin-bottom: 20px;
+}
+footer p {
+  font-size: 5vw;
+  font-weight: 500;
+  text-align: center;
+  width: auto;
+  height: 15%;
+  /* margin-top: 1vh; */
+  /* border: #C20019 1px solid; */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+footer a {
+  width: 20%;
+  height: 20%;
+  font-size: 2vw;
+  background-color: #fd5400;
+  color: #ffffe3;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+footer a:hover {
+  transition: 500ms;
+  background-color: rgba(253, 84, 0, 0.5);
+}
+@media screen and (max-width:1023px){
+  footer a {
+    width: 30%;
+  }
+}
+@media screen and (max-width:912px) {
+  footer {
+    height: 30vh;
+  }
+  footer p {
+    font-size: 8vw;
+  }
+  footer a {
+    font-size: 4vw;
+    width: 40%;
+  }
+}
+.footer-logo {
+  width: 80%;
+  aspect-ratio: 2.8 / 1;
+  margin: 0 auto;
+  background-image: url('../img_salon/logoOrange.png');
+  background-size: cover;
+  background-position: center center;
+}
+
+
+@media screen and (min-width:1023px){
+  body {
+    overflow: auto;
+    scroll-snap-type: y mandatory;
+  }
+  .area{
+    scroll-snap-align: start;
+  }
+}
+
+
+.area,
+.effect {
+  opacity: 0;
+  transform: translate(0, 100px); /* フェードインで動く高さを指定 */
+  transition: all 2300ms; /* フェードインにかかる時間を指定 */
+}
+.effect-scroll {
+  opacity: 1;
+  transform: translate(0, 0);
+}
