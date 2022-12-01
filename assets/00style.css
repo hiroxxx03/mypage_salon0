@@ -2,6 +2,12 @@
   padding: 0;
   margin: 0;
 }
+ul{
+  list-style: none;
+}
+a{
+  text-decoration: none;
+}
 @font-face {
   font-family: typewriter;
   src: url(../font/Leorio.ttf) format('truetype');
